@@ -29,9 +29,19 @@ public class ApiController {
 	 * @return resultado de la búsqueda
 	 * @throws ParseException
 	 */
+	@SuppressWarnings("unchecked")
 	@PostMapping(value = "/prices", produces = "application/json")
 	public JSONObject postPrices(@RequestBody ParamsDTO params) throws ParseException {
-		return pricesService.getPrices(params.getBrandId(), params.getProductId(),
-				new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(params.getApplyDate()));
+		
+		JSONObject response = new JSONObject();
+		
+		try {
+			response = pricesService.getPrices(params.getBrandId(), params.getProductId(),
+					new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(params.getApplyDate()));
+		}catch(ParseException e) {
+			response.put("error", "La fecha indicada no corresponde con el formato: 'yyyy-MM-dd HH:mm:ss'");
+		}
+		return response;
+		
 	}
 }
