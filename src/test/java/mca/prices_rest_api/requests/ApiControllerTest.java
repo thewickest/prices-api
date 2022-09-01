@@ -65,7 +65,7 @@ public class ApiControllerTest {
     	petition.put("brandId", 1);
     	petition.put("productId", 35455);
     	
-    	String response = mockMvc.perform(MockMvcRequestBuilders.post("/prices")
+    	String response = mockMvc.perform(MockMvcRequestBuilders.post("/price")
     			.content(petition.toString()).contentType("application/json"))
     			.andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn()
@@ -91,7 +91,7 @@ public class ApiControllerTest {
     	petition.put("brandId", 1);
     	petition.put("productId", 35455);
     	
-    	String response = mockMvc.perform(MockMvcRequestBuilders.post("/prices")
+    	String response = mockMvc.perform(MockMvcRequestBuilders.post("/price")
     			.content(petition.toString()).contentType("application/json"))
     			.andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn()
@@ -117,7 +117,7 @@ public class ApiControllerTest {
     	petition.put("brandId", 1);
     	petition.put("productId", 35455);
     	
-    	String response = mockMvc.perform(MockMvcRequestBuilders.post("/prices")
+    	String response = mockMvc.perform(MockMvcRequestBuilders.post("/price")
     			.content(petition.toString()).contentType("application/json"))
     			.andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn()
@@ -143,7 +143,7 @@ public class ApiControllerTest {
     	petition.put("brandId", 1);
     	petition.put("productId", 35455);
     	
-    	String response = mockMvc.perform(MockMvcRequestBuilders.post("/prices")
+    	String response = mockMvc.perform(MockMvcRequestBuilders.post("/price")
     			.content(petition.toString()).contentType("application/json"))
     			.andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn()
@@ -169,7 +169,7 @@ public class ApiControllerTest {
     	petition.put("brandId", 1);
     	petition.put("productId", 35455);
     	
-    	String response = mockMvc.perform(MockMvcRequestBuilders.post("/prices")
+    	String response = mockMvc.perform(MockMvcRequestBuilders.post("/price")
     			.content(petition.toString()).contentType("application/json"))
     			.andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn()

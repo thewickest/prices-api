@@ -19,20 +19,21 @@ public class PricesServiceImpl implements PricesService {
 	private PricesDao pricesDao;
 
 	@Override
-	public JSONObject getPrices(int brandId, int productId, Date applyDate) {
+	public JSONObject getPrice(int brandId, int productId, Date applyDate) {
 
-		List<Price> prices = pricesDao.findAllByBrandProductAndApplyDate(brandId, productId, applyDate);
+		List<Price> prices = pricesDao.getPriceByBrandProductAndApplyDate(brandId, productId, applyDate);
 		JSONObject jsonPrice = new JSONObject();
 
 		if (prices != null && !prices.isEmpty()) {
-			Price p = pricesDao.findAllByBrandProductAndApplyDate(brandId, productId, applyDate).get(0);
+			
+			Price price = prices.get(0);
 
-			jsonPrice.put("product_id", p.getProductId());
-			jsonPrice.put("brand_id", p.getBrandId());
-			jsonPrice.put("prices_list", p.getPriceId());
-			jsonPrice.put("start_date", p.getStartDate().toString());
-			jsonPrice.put("end_date", p.getEndDate().toString());
-			jsonPrice.put("price", p.getPrice() + " " + p.getCurrency());
+			jsonPrice.put("product_id", price.getProductId());
+			jsonPrice.put("brand_id", price.getBrandId());
+			jsonPrice.put("prices_list", price.getPriceId());
+			jsonPrice.put("start_date", price.getStartDate().toString());
+			jsonPrice.put("end_date", price.getEndDate().toString());
+			jsonPrice.put("price", price.getPrice() + " " + price.getCurrency());
 		} else {
 			jsonPrice.put("error", "No prices found");
 		}

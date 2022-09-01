@@ -16,6 +16,6 @@ public interface PricesService {
 	 * @param applyDate
 	 * @return
 	 */
-	public JSONObject getPrices(int brandId, int productId, Date applyDate);
+	public JSONObject getPrice(int brandId, int productId, Date applyDate);
 
 }

@@ -30,13 +30,13 @@ public class ApiController {
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unchecked")
-	@PostMapping(value = "/prices", produces = "application/json")
-	public JSONObject postPrices(@RequestBody ParamsDTO params) throws ParseException {
+	@PostMapping(value = "/price", produces = "application/json")
+	public JSONObject postPrice(@RequestBody ParamsDTO params) throws ParseException {
 		
 		JSONObject response = new JSONObject();
 		
 		try {
-			response = pricesService.getPrices(params.getBrandId(), params.getProductId(),
+			response = pricesService.getPrice(params.getBrandId(), params.getProductId(),
 					new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(params.getApplyDate()));
 		}catch(ParseException e) {
 			response.put("error", "La fecha indicada no corresponde con el formato: 'yyyy-MM-dd HH:mm:ss'");

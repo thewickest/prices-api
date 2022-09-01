@@ -20,7 +20,8 @@ public interface PricesDao extends JpaRepository<Price, Long> {
 	 * @param applyDate
 	 * @return
 	 */	
-	@Query(value = "SELECT p FROM Price p WHERE p.brandId = ?1 AND p.productId = ?2 AND p.startDate <= ?3 AND p.endDate > ?3 ORDER BY p.priority DESC")
-	public List<Price> findAllByBrandProductAndApplyDate(int brandId, int productId, Date applyDate);
+	@Query(value = "SELECT p FROM Price p WHERE p.brandId = ?1 AND p.productId = ?2 "
+			+ "AND p.startDate <= ?3 AND p.endDate > ?3 ORDER BY p.priority DESC")
+	public List<Price> getPriceByBrandProductAndApplyDate(int brandId, int productId, Date applyDate);
 
 }
